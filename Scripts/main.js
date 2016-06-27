@@ -50,7 +50,7 @@ function getQuote(){
      data: {
        method: ”getQuote”,
        format: “jsonp”,
-       lang: “en”
+       lang: “en”,
    },
      dataType: “jsonp”,
      jsonp: “jsonp”,
