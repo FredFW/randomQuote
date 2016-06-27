@@ -1,48 +1,23 @@
 function aj(){
-
-  
-var xhttp;
-
-  
-if (window.XMLHttpRequest)
-    {
-xhttp = new XMLHttpRequest();
-  
-}
-else{
-
-    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-  
+  var xhttp;
+  if (window.XMLHttpRequest){
+    xhttp = new XMLHttpRequest();
   }
-
-
+  else{
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
   xhttp.onreadystatechange = function (){
-
     if (xhttp.readyState == 4 && xhttp.status == 200){
-
       document.getElementById("demo").innerHTML = xhttp.responseText;
-
     }
-};
-
-  
+  };
   xhttp.open("GET","test.txt?t=" + Math.random(),true);
-
   xhttp.send();
-
 }
 
-
-
-function parseQuote(response)
-{
-
+function parseQuote(response){
   document.getElementById("quoteText").innerHTML = response.quoteText;
-
 }
-
-
-
 
 function getQuote(){
   $.ajax({
