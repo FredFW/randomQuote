@@ -51,10 +51,8 @@ function getQuote(){
        method: ”getQuote”,
        format: “jsonp”,
        lang: “en”,
-   },
-     dataType: “jsonp”,
-     jsonp: “jsonp”,
-     jsonpCallback: “parseQuote”,
+       jsonp: "parseQuote"
+      },
      type: “GET”
    });
 }
