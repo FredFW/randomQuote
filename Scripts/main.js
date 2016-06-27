@@ -27,16 +27,22 @@ function parseQuote(response)
 
 
 function getQuote(){
- $.ajax({
-     url: “http://api.forismatic.com/api/1.0/”,
-     data: {
-       method: ”getQuote”,
-       format: “jsonp”,
-       lang: “en”
-   },
-     dataType: “jsonp”,
-     jsonp: “jsonp”,
-     jsonpCallback: “parseQuote”,
-     type: “GET”
-   });
+  var xhttp;
+
+  if (window.XMLHttpRequest){
+    xhttp = new XMLHttpRequest();
+  }
+  else{
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  xhttp.onreadystatechange = function (){
+    if (xhttp.readyState == 4 && xhttp.status == 200){
+      document.getElementById("quoteText").innerHTML = xhttp.responseText;
+    }
+  };
+
+  xhttp.open("GET","http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&jsonp=parseQuote",true);
+  xhttp.send();
+
 }
