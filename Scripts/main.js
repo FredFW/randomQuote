@@ -25,9 +25,9 @@ function parseQuote(response){
 			document.getElementById("quoteText").innerHTML = response.quoteText + "--" + response.quoteAuthor;
 }
 
-function parseQuote1(response){
-			document.getElementById("quoteText3").innerHTML = response.quoteText + "--" + response.quoteAuthor;
-}
+// function parseQuote1(response){
+// 			document.getElementById("quoteText3").innerHTML = response.quoteText + "--" + response.quoteAuthor;
+// }
 
 
 function getQuote(){
@@ -54,9 +54,9 @@ function getQuote2(){
 }
 
 
-function getQuote3(){
-  var script = document.createElement("SCRIPT");
-  document.body.appendChild(script);
-  script.src = "http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=parseQuote1";
-  document.body.removeChild(script);
-}
+// function getQuote3(){
+//   var script = document.createElement("SCRIPT");
+//   document.body.appendChild(script);
+//   script.src = "http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=parseQuote1";
+//   document.body.removeChild(script);
+// }
