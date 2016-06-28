@@ -33,7 +33,7 @@ function parseQuote(response){
 function getQuote(){
   
   $.ajax({
-    url: "http://api.forismatic.com/api/1.0/",
+    url: "//api.forismatic.com/api/1.0/",
     data: {
       method: "getQuote",
       lang: "en",
@@ -48,7 +48,7 @@ function getQuote(){
 
   
 function getQuote2(){
-  $.getJSON("http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?", function(d){
+  $.getJSON("//api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?", function(d){
     document.getElementById("quoteText2").innerHTML = d.quoteText + "--" + d.quoteAuthor;
   });
 }
@@ -57,6 +57,6 @@ function getQuote2(){
 // function getQuote3(){
 //   var script = document.createElement("SCRIPT");
 //   document.body.appendChild(script);
-//   script.src = "http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=parseQuote1";
+//   script.src = "//api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=parseQuote1";
 //   document.body.removeChild(script);
 // }
