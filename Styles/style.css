@@ -1,0 +1,36 @@
+body{
+  background-color: lightblue;
+  font-family: 'Indie Flower', cursive;
+  transition: 2s opacity;
+}
+
+h1{
+  font-family: 'Ultra', serif;
+}
+
+.cbtn{
+  width: 100%;
+  margin: 0.5em 0 0.5em 0;
+  font-size: 1.5em;
+}
+
+#heading{
+  text-align: center;
+  padding: 2em;
+}
+
+#quoteBg{
+  padding: 4em;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 26px;
+  color: white;
+  min-height: 50vh;
+}
+
+blockquote{
+  font-size: 2em;
+}
+
+#quoteAuthor{
+  color: lightgrey;
+}
