@@ -82,11 +82,9 @@ function getQuote(){
 
 function parseQuote(response){
   
-  function orange(){
-  	document.body.style.opacity == "0.2"?document.body.style.opacity = "1":document.body.style.opacity = "0.2";
-  }
+  var color = ["orange","lightblue","lightgreen"];
   
-  orange();
+  document.body.style.backgroundColor = color[Math.floor((Math.random() * 3) + 1)];
   
   var quotes = new RegExp('\"',"g");
   
@@ -107,6 +105,6 @@ function parseQuote(response){
   
 	document.getElementById("quoteText").innerHTML = response.quoteText;
 	document.getElementById("quoteAuthor").innerHTML = response.quoteAuthor;
-	orange();
+
 	document.getElementById("twitterBtn").href= "https://twitter.com/intent/tweet?text=" + response.quoteText + " -- " + response.quoteAuthor;
 }
