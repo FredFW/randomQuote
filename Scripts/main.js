@@ -82,7 +82,15 @@ function getQuote(){
 
 function parseQuote(response){
   
-  document.body.style.backgroundColor === "lightblue" ? document.body.style.backgroundColor = "orange" : document.body.style.backgroundColor = "lightblue";
+  function lightblue(){
+  	document.body.style.backgroundColor = "lightblue";
+  }
+  
+  function orange(){
+  	document.body.style.backgroundColor = "orange";
+  }
+  
+  orange();
   
   var quotes = new RegExp('\"',"g");
   
@@ -103,6 +111,6 @@ function parseQuote(response){
   
 	document.getElementById("quoteText").innerHTML = response.quoteText;
 	document.getElementById("quoteAuthor").innerHTML = response.quoteAuthor;
-	
+	lightblue();
 	document.getElementById("twitterBtn").href= "https://twitter.com/intent/tweet?text=" + response.quoteText + " -- " + response.quoteAuthor;
 }
