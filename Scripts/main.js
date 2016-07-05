@@ -82,6 +82,8 @@ function getQuote(){
 
 function parseQuote(response){
   
+  document.getElementsByTagName("BODY").background-color === "lightblue" ? document.getElementsByTagName("BODY").background-color = "lightgreen" : document.getElementsByTagName("BODY").background-color = "orange";
+  
   var quotes = new RegExp('\"',"g");
   
   response = JSON.stringify(response);
