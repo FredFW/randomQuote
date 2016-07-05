@@ -68,7 +68,7 @@
 
 function getQuote(){
   $.ajax({
-    url: "http://api.forismatic.com/api/1.0/",
+    url: "https://crossorigin.me/http://api.forismatic.com/api/1.0/",
     data: {
       method: "getQuote",
       lang: "en",
