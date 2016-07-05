@@ -82,7 +82,7 @@ function getQuote(){
 
 function parseQuote(response){
   
-  document.body.style.backgroundColor == "lightblue"? document.body.style.backgroundColor = "orange": document.body.style.backgroundColor == "lightblue";
+  document.body.style.backgroundColor === "lightblue" ? document.body.style.backgroundColor = "orange" : document.body.style.backgroundColor = "lightblue";
   
   var quotes = new RegExp('\"',"g");
   
