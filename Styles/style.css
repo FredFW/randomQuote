@@ -1,7 +1,7 @@
 body{
   background-color: lightblue;
   font-family: 'Indie Flower', cursive;
-  transition: all 2s;
+  transition: 2s;
 }
 
 h1{
@@ -33,8 +33,4 @@ blockquote{
 
 #quoteAuthor{
   color: lightgrey;
-}
-
-.bg{
-  background-color: black;
 }
