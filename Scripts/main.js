@@ -111,5 +111,6 @@ function parseQuote(response){
         
         function opt(){
           document.body.style.opacity = "1";
-}();
+}
+opt();
 }
