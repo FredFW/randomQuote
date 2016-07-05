@@ -83,11 +83,13 @@ function getQuote(){
 function parseQuote(response){
   
   function lightblue(){
-  	document.body.style.backgroundColor = "lightblue";
+  	// document.body.style.backgroundColor = "lightblue";
+  	document.body.style.opacity = "0.2";
   }
   
   function orange(){
-  	document.body.style.backgroundColor = "orange";
+  	// document.body.style.backgroundColor = "orange";
+  	document.body.style.opacity = "0.2";
   }
   
   orange();
