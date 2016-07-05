@@ -84,7 +84,7 @@ function parseQuote(response){
   
   function lightblue(){
   	// document.body.style.backgroundColor = "lightblue";
-  	document.body.style.opacity = "0.2";
+  	document.body.style.opacity = "1";
   }
   
   function orange(){
