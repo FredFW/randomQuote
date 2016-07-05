@@ -82,14 +82,8 @@ function getQuote(){
 
 function parseQuote(response){
   
-  function lightblue(){
-  	// document.body.style.backgroundColor = "lightblue";
-  	document.body.style.opacity = "1";
-  }
-  
   function orange(){
-  	// document.body.style.backgroundColor = "orange";
-  	document.body.style.opacity = "0.2";
+  	document.body.style.opacity == "0.2"?document.body.style.opacity = "1":document.body.style.opacity = "0.2";
   }
   
   orange();
@@ -113,6 +107,6 @@ function parseQuote(response){
   
 	document.getElementById("quoteText").innerHTML = response.quoteText;
 	document.getElementById("quoteAuthor").innerHTML = response.quoteAuthor;
-	lightblue();
+	orange();
 	document.getElementById("twitterBtn").href= "https://twitter.com/intent/tweet?text=" + response.quoteText + " -- " + response.quoteAuthor;
 }
