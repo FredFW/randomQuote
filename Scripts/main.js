@@ -105,5 +105,5 @@ function parseQuote(response){
 	document.getElementById("quoteAuthor").innerHTML = response.quoteAuthor;
 
 	document.getElementById("twitterBtn").href= "https://twitter.com/intent/tweet?text=" + response.quoteText + " -- " + response.quoteAuthor;
-	
+	$("body").toggleClass("bg");
 }
