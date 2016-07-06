@@ -21,7 +21,7 @@ h1{
 
 #quoteBg{
   padding: 4em;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 26px;
   color: grey;
   min-height: 50vh;
@@ -32,5 +32,5 @@ blockquote{
 }
 
 #quoteAuthor{
-  color: grey;
+  color: lightgrey;
 }
