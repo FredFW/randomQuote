@@ -67,6 +67,9 @@
 // /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function getQuote(){
+  document.body.style.backgroundColor = "orange";
+  document.body.style.opacity = "0.2";
+  
   $.ajax({
     url: "https://crossorigin.me/http://api.forismatic.com/api/1.0/",
     data: {
@@ -82,36 +85,29 @@ function getQuote(){
 
 function parseQuote(response){
   
-  document.body.style.backgroundColor = "orange";
-  document.body.style.opacity = "0.2";
+  document.body.style.backgroundColor = "lightgreen";
+
+  var quotes = new RegExp('\"',"g");
   
-  setTimeout(function(){
-    
-    var quotes = new RegExp('\"',"g");
+  response = JSON.stringify(response);
+  response = response.replace(quotes,'\\"');
+  response = response.replace('\\"quoteText\\"\:\\','"quoteText":');
+  response = response.replace('\\",\\"quoteAuthor\\"\:\\','","quoteAuthor":');
+  response = response.replace('\\",\\"senderName\\"\:\\','","senderName":');
+  response = response.replace('\\",\\"senderLink\\"\:\\','","senderLink":');
+  response = response.replace('\\",\\"quoteLink\\"\:\\','","quoteLink":');
+  response = response.replace('\\"}','"}');
   
-    response = JSON.stringify(response);
-    response = response.replace(quotes,'\\"');
-    response = response.replace('\\"quoteText\\"\:\\','"quoteText":');
-    response = response.replace('\\",\\"quoteAuthor\\"\:\\','","quoteAuthor":');
-    response = response.replace('\\",\\"senderName\\"\:\\','","senderName":');
-    response = response.replace('\\",\\"senderLink\\"\:\\','","senderLink":');
-    response = response.replace('\\",\\"quoteLink\\"\:\\','","quoteLink":');
-    response = response.replace('\\"}','"}');
+  response = JSON.parse(response);
   
-    response = JSON.parse(response);
+  if(response.quoteAuthor === ""){
+    response.quoteAuthor = "Anonymous";
+  }
   
-    if(response.quoteAuthor === ""){
-      response.quoteAuthor = "Anonymous";
-    }
-  
-	  document.getElementById("quoteText").innerHTML = response.quoteText;
-	  document.getElementById("quoteAuthor").innerHTML = response.quoteAuthor;
+  document.getElementById("quoteText").innerHTML = response.quoteText;
+  document.getElementById("quoteAuthor").innerHTML = response.quoteAuthor;
+  document.getElementById("twitterBtn").href= "https://twitter.com/intent/tweet?text=" + response.quoteText + " -- " + response.quoteAuthor;
 	
-	  document.getElementById("twitterBtn").href= "https://twitter.com/intent/tweet?text=" + response.quoteText + " -- " + response.quoteAuthor;
-	
-  }, 1000);
-	
-	setTimeout(function(){document.body.style.backgroundColor = "lightgreen";}, 1000);
-	setTimeout(function(){document.body.style.backgroundColor = "lightblue";}, 2000);
-	setTimeout(function(){document.body.style.opacity = "1";}, 2000);
+  setTimeout(function(){document.body.style.backgroundColor = "lightblue";}, 2000);
+  setTimeout(function(){document.body.style.opacity = "1";}, 2000);
 }
