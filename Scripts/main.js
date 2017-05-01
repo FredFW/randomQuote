@@ -71,7 +71,7 @@ function getQuote(){
   document.body.style.opacity = "0.2";
   
   $.ajax({
-    url: "https://cors-anywhere.herokuapp.com/http://api.forismatic.com/api/1.0/",
+    url: "https://cors.now.sh/http://api.forismatic.com/api/1.0/",
     data: {
       method: "getQuote",
       lang: "en",
