@@ -70,35 +70,41 @@ function getQuote(){
   document.body.style.backgroundColor = "orange";
   document.body.style.opacity = "0.2";
   
-  $.ajax({
-    url: "http://api.forismatic.com/api/1.0/",
-    data: {
-      method: "getQuote",
-      lang: "en",
-      format: "jsonp"
-    },
-    dataType: "jsonp",
-    jsonp: "jsonp",
-    jsonpCallback: "parseQuote"
-  });
+  var xhttp;
+
+  if (window.XMLHttpRequest){
+    xhttp = new XMLHttpRequest();
+  }
+  else{
+    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  xhttp.onreadystatechange = function (){
+    if (xhttp.readyState == 4 && xhttp.status == 200){
+      parseQuote(xhttp.responseText);
+    }
+  };
+
+  xhttp.open("GET","https://cors.now.sh/http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en",true);
+  xhttp.send();
 }
 
 function parseQuote(response){
   
   document.body.style.backgroundColor = "lightgreen";
 
-  var quotes = new RegExp('\"',"g");
-  
-  response = JSON.stringify(response);
-  response = response.replace(quotes,'\\"');
-  response = response.replace('\\"quoteText\\"\:\\','"quoteText":');
-  response = response.replace('\\",\\"quoteAuthor\\"\:\\','","quoteAuthor":');
-  response = response.replace('\\",\\"senderName\\"\:\\','","senderName":');
-  response = response.replace('\\",\\"senderLink\\"\:\\','","senderLink":');
-  response = response.replace('\\",\\"quoteLink\\"\:\\','","quoteLink":');
+  console.log(response);
+  response = response.replace(/\\'/g,"'");
+  response = response.replace(/"/g,'\\"');
+  response = response.replace('\\"quoteText\\"\:\\"','"quoteText":"');
+  response = response.replace('\\", \\"quoteAuthor\\":\\"','", "quoteAuthor":"');
+  response = response.replace('\\", \\"senderName\\"\:\\"','", "senderName":"');
+  response = response.replace('\\", \\"senderLink\\"\:\\"','", "senderLink":"');
+  response = response.replace('\\", \\"quoteLink\\"\:\\"','", "quoteLink":"');
   response = response.replace('\\"}','"}');
   
   response = JSON.parse(response);
+  console.log(response.quoteText);
   
   if(response.quoteAuthor === ""){
     response.quoteAuthor = "Anonymous";
